@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="app_name">Endless Runner 3D</string>
-    <string name="score_format">Ball: %1$d</string>
-    <string name="coin_format">Tanga: %1$d</string>
-    <string name="game_over_title">O\'YIN TUGADI</string>
-    <string name="final_score_format">Ball: %1$d\nTanga: %2$d</string>
-    <string name="restart_button">Qayta boshlash</string>
-</resources>
