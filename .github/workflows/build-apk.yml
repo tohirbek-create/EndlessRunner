@@ -1,0 +1,34 @@
+name: Build APK
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repozitoriyani olish
+        uses: actions/checkout@v4
+
+      - name: JDK 17 sozlash
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Gradle sozlash (8.4)
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.4'
+
+      - name: Debug APK yig'ish
+        run: gradle assembleDebug --stacktrace
+
+      - name: APK ni artifact sifatida yuklash
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
